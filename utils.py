@@ -22,5 +22,6 @@ def get_month_list(year):
     return months_list
     
 if __name__ == "__main__":
-    months_list = get_month_list(2024)
+    #Test the function
+    months_list = get_month_list(2024) 
     print(months_list)

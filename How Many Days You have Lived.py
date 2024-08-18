@@ -34,5 +34,6 @@ def main():
 
     total_days = substract_dates(birth.year, birth.day_of_the_year(), today.year, today.day_of_the_year())
     print(f"You have lived {total_days} days!")
-      
-main()
+
+if __name__ == "__main__":
+    main()
