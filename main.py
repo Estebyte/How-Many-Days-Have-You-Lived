@@ -19,13 +19,19 @@ class Date:
                 break
         return days_counter
 
-def substract_dates(year1, day_of_the_year1, year2, day_of_the_year2):
-    days_left = utils.days_in_year(year1) - day_of_the_year1
-    spare_days = day_of_the_year2
-    years_substraction = (year2 - (year1 + 1))
+def substract_dates(birth, current_date):
+    days_left = utils.days_in_year(birth.year) - birth.day_of_the_year() #Days left to end the birthdate's year 
+    spare_days = current_date.day_of_the_year() #Days after the start of the current year
 
-    total = days_left + spare_days + (years_substraction * 365)
+    #Total days in the years between the two dates
+    days_between_years = 0
+    for year in range(birth.year + 1, current_date.year): #the algorithm doesn't count either the year of birth nor the current year
+        days_between_years += utils.days_in_year(year)
+
+    total = days_left + days_between_years + spare_days 
     return total
+    
+    #A better explication of the subtraction is in the README.md
 
 def main():
     #Ask the user for his birth data and the current date
@@ -36,7 +42,7 @@ def main():
     current_date = Date(current_year, current_month, current_day) 
 
     #Substract Dates
-    total_days = substract_dates(birth.year, birth.day_of_the_year(), current_date.year, current_date.day_of_the_year())
+    total_days = substract_dates(birth, current_date)
 
     #Print the result
     print(f"You have lived {total_days} days!")
