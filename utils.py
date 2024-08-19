@@ -1,3 +1,10 @@
+def is_leap(year):
+    #Returns True or False if the year is or isn't leap
+    if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+        return True
+    else:
+        return False
+    
 def days_in_month(month, year):
     #Establishes the days in the month
     if month in (1, 3, 5, 7, 8, 10, 12):
@@ -6,7 +13,7 @@ def days_in_month(month, year):
         return 30
     elif month == 2:
         #Lap year logic
-        if (year % 400 == 0) or (year % 4 == 0 and year % 100 != 0):
+        if is_leap(year):
             return 29
         else:
             return 28
