@@ -29,10 +29,17 @@ def substract_dates(year1, day_of_the_year1, year2, day_of_the_year2):
     return total
 
 def main():
-    birth = Date(2023, 7, 28)
-    today = Date(2024, 7, 28) 
+    #Ask the user for his birth data and the current date
+    birth_year, birth_month, birth_day = map(int, input("Enter your birth in YYYY/MM/DD format: ").split("/"))
+    birth = Date(birth_year, birth_month, birth_day)
 
-    total_days = substract_dates(birth.year, birth.day_of_the_year(), today.year, today.day_of_the_year())
+    current_year, current_month, current_day = map(int, input("Enter the current date in YYYY/MM/DD format: ").split("/"))
+    current_date = Date(current_year, current_month, current_day) 
+
+    #Substract Dates
+    total_days = substract_dates(birth.year, birth.day_of_the_year(), current_date.year, current_date.day_of_the_year())
+
+    #Print the result
     print(f"You have lived {total_days} days!")
 
 if __name__ == "__main__":
