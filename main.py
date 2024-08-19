@@ -20,8 +20,7 @@ class Date:
         return days_counter
 
 def substract_dates(year1, day_of_the_year1, year2, day_of_the_year2):
-
-    days_left = 365 - day_of_the_year1
+    days_left = utils.days_in_year(year1) - day_of_the_year1
     spare_days = day_of_the_year2
     years_substraction = (year2 - (year1 + 1))
 

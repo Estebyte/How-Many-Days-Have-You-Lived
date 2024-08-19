@@ -18,6 +18,12 @@ def days_in_month(month, year):
         else:
             return 28
 
+def days_in_year(year):
+    if is_leap(year):
+        return 366
+    else:
+        return 365
+
 def get_month_list(year):
     #Return a list of dictionaries with months and their respective days.
     months_list = []
