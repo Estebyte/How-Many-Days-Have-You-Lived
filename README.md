@@ -1,7 +1,11 @@
-A program that calculate the days between 2 dates without using the datetime python library
+# Program Description
+This program calculates the number of days between two dates without using Python's datetime library.
 
-The substraction algorithm, equals the birth date to the start of the next year, and the same with the current day, but to the start of it's year. It save the diferences in two variables whih will be added to the total. the algorithm doesn't count either the year of death nor the current year
+# Algorithm
+The substraction algorithm works as follows:
 
-then a for loop counts the days between this "new dates" and save it in a new variable.
+1. The birth date is adjusted to the first day of the next year, and the current date is adjusted to the first day of its respective year. The differences in days between the original dates and these new dates are stored in two variables. days_left, the days left to the end of the birth year, and spare_days, the days that have passed in the current year.
 
-the result is just the sum of the result of the loop, the dates left to end the birth year, and the days after the start of the current year.
+3. Next, a for loop is used to count the days between these "new dates" and the result is stored in a new variable, days_between_years.
+
+4. The final result is the sum of days_left, days_between_years, and spare_days.
