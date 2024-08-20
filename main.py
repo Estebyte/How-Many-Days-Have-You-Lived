@@ -7,7 +7,7 @@ class Date:
         self.day = day
 
     def day_of_the_year(self):
-        #Calculate the day of the year for the given date.
+        # Calculate the day of the year for the given date, summing the days of the month to a counter.
         days_counter = 0
         months_list = utils.get_month_list(self.year)
 
@@ -20,18 +20,22 @@ class Date:
         return days_counter
 
 def substract_dates(birth, current_date):
-    days_left = utils.days_in_year(birth.year) - birth.day_of_the_year() #Days left to end the birthdate's year 
-    spare_days = current_date.day_of_the_year() #Days after the start of the current year
+    # Days left to end the birth year.
+    days_left = utils.days_in_year(birth.year) - birth.day_of_the_year() 
 
-    #Total days in the years between the two dates
+    # Days that have passed after the start of the current year.
+    spare_days = current_date.day_of_the_year() 
+
+    # Total days in the full years between the two "new dates".
+    # The for loop skips counting the birth year and the current year since those days are handled separately.
     days_between_years = 0
-    for year in range(birth.year + 1, current_date.year): #the algorithm doesn't count either the year of birth nor the current year
+    for year in range(birth.year + 1, current_date.year): 
         days_between_years += utils.days_in_year(year)
 
     total = days_left + days_between_years + spare_days 
     return total
     
-    #A better explication of the subtraction is in the README.md
+    # For more details on how the subtraction algorithm works, refer to the README.md 
 
 def main():
     #Ask the user for his birth data and the current date
